@@ -1,0 +1,65 @@
+:root {
+    --bg-color: #fff;
+    --header-bg-color: rgba(255, 255, 255, 0.7);
+    --header-hv-bg-color: rgba(255, 255, 255, 1);
+    --color: #222a3c;
+    --p-color: #d95163;
+    --s-color: #596275;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahome, sans-serif;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    color: var(--color);
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--bg-color);
+    padding: 1rem;
+    background-color: var(--header-bg-color);
+    text-align: right;
+}
+header:hover {
+    background-color: var(--header-hv-bg-color);
+}
+
+header nav a {
+    padding: 0.5rem 1rem;
+    color: var(--s-color);
+    font-size: 1rem;
+    text-transform: capitalize;
+
+}
+header nav a.active,
+header nav a:hover {
+    color: var(--color);
+    text-decoration: underline;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+section h2 {
+    font-family: 'Noto Sans';
+    font-size: 3rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: var(--color);
+    width: 90%;
+    text-align: center;
+    padding: 3rem;
+    border-bottom: 1px solid var(--color);
+}
