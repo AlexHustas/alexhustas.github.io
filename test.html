@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -15,37 +17,84 @@
             <a href="#about">about</a>
             <a href="#services">services</a>
             <a href="#contacts">contacts</a>
-        </nav>    
+        </nav>
     </header>
-    <section id="home"> <h2>home</h2></section>
-    <section id="about"> <h2>about</h2></section>
-    <section id="services"> <h2>services</h2></section>
-    <section id="contacts"> <h2>contacts</h2></section>
+    <section id="home">
+        <img src="img/logo.svg" alt="alexhustas logo">
+    </section>
+    <section id="about">
+        <h2>about</h2>
+        <div class="container">
+            <div class="col wide">
+                <img src="img/logo.svg" alt="alexhustas logo">
+            </div>
+            <div class="col content">
+                <p>We are US based freelance motion collective of Designers and Developers with strong preference for
+                    minimalist design and intuitive UX/UI.</p>
+                <p>Here are a few technologies we’ve been working with:</p>
+                <div class="container">
+                    <div class="col">
+                        <ul>
+                            <li>HTML/CSS</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>TypeScript</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>Python</li>
+                            <li>Node.js</li>
+                            <li>Django</li>
+                            <li>WordPres</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<script>
+    </section>
+    <section id="services">
+        <h2>services</h2>
+        <div class="container">
+            <div class="col content">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque deleniti adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde, molestiae laboriosam minus asperiores similique accusamus, adipisci aspernatur provident.</p>
+            </div>
+            <div class="col">
+                <img src="img/UI-UX-icon.svg" alt="">
+            </div>
 
-let sections = document.querySelectorAll('section');
-let nav = document.querySelector('header nav');
-let navLinks = document.querySelectorAll('header nav a');
+        </div>
+    </section>
+    <section id="contacts">
+        <h2>contacts</h2>
+    </section>
 
-window.onscroll = () => {
-    sections.forEach(sec => {
+    <script>
 
-        let top = window.scrollY;
-        let offset = sec.offsetTop;
-        let height = sec.offsetHeight;
-        let navHeight = nav.offsetHeight;
-        let id = sec.getAttribute('id');
+        let sections = document.querySelectorAll('section');
+        let nav = document.querySelector('header nav');
+        let navLinks = document.querySelectorAll('header nav a');
 
-        if (top >= offset && top <= offset + height - navHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                document.querySelector('header nav a[href*='+id+']').classList.add('active');
+        window.onscroll = () => {
+            sections.forEach(sec => {
+
+                let top = window.scrollY;
+                let offset = sec.offsetTop;
+                let height = sec.offsetHeight;
+                let navHeight = nav.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top <= offset + height - navHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                    });
+                }
             });
-        }
-    }); 
-};
+        };
 
-</script>
+    </script>
 </body>
+
 </html>
