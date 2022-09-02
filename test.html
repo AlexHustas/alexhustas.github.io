@@ -57,13 +57,53 @@
     <section id="services">
         <h2>services</h2>
         <div class="container">
-            <div class="col content">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque deleniti adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde, molestiae laboriosam minus asperiores similique accusamus, adipisci aspernatur provident.</p>
+            <div class="tabs">
+                <div class="tab">
+                    <input type="radio" class="tab-switch" name="css-tabs" id="uiux-tab" checked>                    
+                    <label class="tab-label" for="uiux-tab">UI/UX</label>                    
+                    <div class="tab-content">
+                        <div class="col content">
+                            <p>UI/UX Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque
+                                deleniti adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde,
+                                molestiae laboriosam minus asperiores similique accusamus, adipisci aspernatur
+                                provident.
+                            </p>
+                        </div>
+                        <div class="col">
+                            <img src="img/UI-UX-icon.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" class="tab-switch" name="css-tabs" id="web-tab">
+                    <label class="tab-label" for="web-tab">Web</label>                    
+                    <div class="tab-content">
+                        <div class="col">
+                            <img src="img/UI-UX-icon.svg" alt="">
+                        </div>
+                        <div class="col content">
+                            <p>Web Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque
+                                deleniti
+                                adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde, molestiae
+                                laboriosam minus asperiores similique accusamus, adipisci aspernatur provident.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" class="tab-switch" name="css-tabs" id="api-tab">
+                    <label class="tab-label" for="api-tab">API</label>
+                    <div class="tab-content">
+                        <div class="col content">
+                            <p> API Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque deleniti
+                                adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde, molestiae
+                                laboriosam minus asperiores similique accusamus, adipisci aspernatur provident.</p>
+                        </div>
+                        <div class="col">
+                            <img src="img/UI-UX-icon.svg" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <img src="img/UI-UX-icon.svg" alt="">
-            </div>
-
         </div>
     </section>
     <section id="contacts">
@@ -88,7 +128,9 @@
                 if (top >= offset && top <= offset + height - navHeight) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
-                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                        if (link.getAttribute('href').endsWith(id)) {
+                            link.classList.add('active');
+                        }
                     });
                 }
             });

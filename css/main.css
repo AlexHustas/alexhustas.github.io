@@ -25,6 +25,7 @@
         --content-padding: 1rem;
     }
 }
+
 @media only screen and (min-width: 360px) and (orientation: landscape) {
     :root {
         --about-logo-width: 20vw;
@@ -36,7 +37,7 @@
 
 @media only screen and (min-width: 1300px) {
     :root {
-        --content-padding: 3rem; 
+        --content-padding: 3rem;
     }
 }
 
@@ -87,7 +88,6 @@ section {
     justify-content: baseline;
     padding-top: 2rem;
     flex-direction: column
-
 }
 
 section h2 {
@@ -107,7 +107,7 @@ section#home {
     align-items: center;
 }
 
-section#home img {    
+section#home img {
     min-width: var(--logo-width);
     max-width: var(--logo-width);
 }
@@ -116,32 +116,117 @@ section#services img,
 section#about img {
     margin: var(--content-padding);
     max-width: var(--about-logo-width);
-    
+
 }
-section#services div.container,
+
+section#services .container,
+section#services .tab,
 section#about div.container {
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     max-width: 70vw;
 }
-section#services div.col,
+
+section#services .col,
 section#about div.col {
     padding-top: var(--content-padding);
     text-align: center;
     flex: 50%;
 }
+
 section#services div.content,
 section#about div.col.content {
     text-align: justify;
-    
+
 }
-section#services div.col.content p,
+
+section#services div.col p,
 section#about div.col.content p {
     padding: 1rem 0 1rem 0;
 }
+
+section#services div.col.content ul,
 section#about div.col.content ul {
     text-align: justify;
     margin-left: 1rem;
 }
 
-/* section#services */
+section#services h2 {
+    border: 0px;
+    /* padding: calc(var(--title-padding) + 1rem); */
+}
+
+section#services div.tabs {
+    width: 90vw;
+    text-align: center;
+    border-bottom: 1px solid var(--color);
+}
+
+.tabs {
+    position: relative;
+    display: flex;    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs::before,
+.tabs::after {
+  content: "";
+  display: table;
+}
+.tabs::after {
+  clear: both;
+}
+
+.tab-switch {
+    display: none;
+}
+
+.tab-label {
+    position: relative;
+    display: block;
+    top: .15rem;    
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-decoration: solid;
+    text-align: center;
+}
+
+.tab-label:hover {
+    vertical-align: bottom;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-bottom: 3px solid var(--p-color);
+    color: var(--p-color);
+    text-decoration: solid;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+
+.tab-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 70vw;
+    left: 0;
+    position: absolute;
+    top: 2.75em;
+    opacity: 0;
+    z-index: 1;    
+}
+
+.tab-switch:checked + .tab-label {
+    z-index: 1;
+    padding-left: 1rem;
+    border-bottom: 3px solid var(--p-color);
+    color: var(--p-color);
+    text-decoration: solid;
+    transition: all 0.25s;
+}
+
+.tab-switch:checked + label +.tab-content {
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.5s;
+}
