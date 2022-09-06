@@ -1,27 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link href="css/style.css" rel="stylesheet" />
-    <script defer src="js/main.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <img src="img/logo.svg" alt="" width="300" />
-      </div>
-    </div>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="active" href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#contacts">contacts</a>
+        </nav>
+    </header>
+    <section id="home">
+        <img src="img/logo.svg" alt="alexhustas logo">
+    </section>
+    <section id="about">
+        <h2>about</h2>
+        <div class="container">
+            <div class="col wide">
+                <img src="img/logo.svg" alt="alexhustas logo">
+            </div>
+            <div class="col content">
+                <p>We are US based freelance motion collective of Designers and Developers with strong preference for
+                    minimalist design and intuitive UX/UI.</p>
+                <p>Here are a few technologies we’ve been working with:</p>
+                <div class="container">
+                    <div class="col">
+                        <ul>
+                            <li>HTML/CSS</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>TypeScript</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>Python</li>
+                            <li>Node.js</li>
+                            <li>Django</li>
+                            <li>WordPres</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section id="services">
+        <h2>services</h2>
+        <div class="container">
+            <div class="tabs">
+                <div class="tab">
+                    <input type="radio" class="tab-switch" name="css-tabs" id="uiux-tab" checked>                    
+                    <label class="tab-label" for="uiux-tab">UI/UX</label>                    
+                    <div class="tab-content">
+                        <div class="col content">
+                            <p>UI/UX Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque
+                                deleniti adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde,
+                                molestiae laboriosam minus asperiores similique accusamus, adipisci aspernatur
+                                provident.
+                            </p>
+                        </div>
+                        <div class="col">
+                            <img src="img/UI-UX-icon.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" class="tab-switch" name="css-tabs" id="web-tab">
+                    <label class="tab-label" for="web-tab">Web</label>                    
+                    <div class="tab-content">
+                        <div class="col">
+                            <img src="img/UI-UX-icon.svg" alt="">
+                        </div>
+                        <div class="col content">
+                            <p>Web Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque
+                                deleniti
+                                adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde, molestiae
+                                laboriosam minus asperiores similique accusamus, adipisci aspernatur provident.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" class="tab-switch" name="css-tabs" id="api-tab">
+                    <label class="tab-label" for="api-tab">API</label>
+                    <div class="tab-content">
+                        <div class="col content">
+                            <p> API Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium odio neque deleniti
+                                adipisci perspiciatis molestiae ipsum repudiandae. Quas temporibus iste unde, molestiae
+                                laboriosam minus asperiores similique accusamus, adipisci aspernatur provident.</p>
+                        </div>
+                        <div class="col">
+                            <img src="img/UI-UX-icon.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contacts">
+        <h2>contacts</h2>
+    </section>
+
+    <script>
+
+        let sections = document.querySelectorAll('section');
+        let nav = document.querySelector('header nav');
+        let navLinks = document.querySelectorAll('header nav a');
+
+        window.onscroll = () => {
+            sections.forEach(sec => {
+
+                let top = window.scrollY;
+                let offset = sec.offsetTop;
+                let height = sec.offsetHeight;
+                let navHeight = nav.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top <= offset + height - navHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').endsWith(id)) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+
+    </script>
+</body>
+
 </html>
